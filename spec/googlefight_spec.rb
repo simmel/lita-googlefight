@@ -9,4 +9,8 @@ describe Lita::Handlers::Googlefight, lita_handler: true do
     it { is_expected.to route_command("!googlefight this;that").to(:googlefight) }
     it { is_expected.to route_command("!gf 'another this';'another that'").to(:googlefight) }
 
+    it "google clearly is more popular than altavista nowadays" do
+        send_message("!googlefight google;altavista")
+        expect(replies.last).to match(/WINNER: google!$/)
+    end
 end
