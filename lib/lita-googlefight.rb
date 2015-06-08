@@ -1,12 +1,10 @@
 require "lita"
 
-Lita.load_locales Dir[File.expand_path(
-  File.join("..", "..", "locales", "*.yml"), __FILE__
-)]
+module Lita
+  module Handlers
+    class Googlefight < Handler
+    end
 
-require "lita/handlers/googlefight"
-
-Lita::Handlers::Googlefight.template_root File.expand_path(
-  File.join("..", "..", "templates"),
- __FILE__
-)
+    Lita.register_handler(Googlefight)
+  end
+end
