@@ -5,4 +5,7 @@ require "lita/rspec"
 Lita.version_3_compatibility_mode = false
 
 describe Lita::Handlers::Googlefight, lita_handler: true do
+
+    it { is_expected.to route_command("!googlefight this;that").to(:googlefight) }
+
 end
